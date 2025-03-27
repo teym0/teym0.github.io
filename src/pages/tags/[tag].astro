@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogCard from '../../components/BlogCard.astro';
+
+
+export async function getStaticPaths() {
+  const allPosts = await Astro.glob('../posts/*.md');
+  const uniqueTags = [...new Set(allPosts.map((post) => post.frontmatter.tags).flat())]
+  
+
+  return uniqueTags.map((tag) => {
+    const filteredPosts = allPosts.filter((post) => post.frontmatter.tags.includes(tag));
+    return {
+      params: { tag },
+      props: { 
+        posts: filteredPosts,
+      }
+    }
+  });
+}
+
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+const filteredPosts = posts
+  .filter((post) => post.frontmatter.tags?.includes(tag))
+  .sort((a, b) => new Date(b.frontmatter.pubDate).getTime() - new Date(a.frontmatter.pubDate).getTime());
+
+import { tagIcons } from '../../config/tagIcons';
+const iconPath = tagIcons[tag] || '/icons/default.svg';
+
+---
+<BaseLayout pageTitle={tag}>
+    <div class="text-center my-15">
+      <img src={iconPath} alt={tag} class="w-16 h-16 inline-block mr-1 mb-5" />
+      <h1 class="text-4xl font-bold mx-5">
+        {tag}のタグが付いた記事
+      </h1>
+      <p class="mt-3 post-date underline"><a href="/blog/">記事一覧へ戻る</a></p>
+    </div>
+
+
+
+  <div class="px-4 py-8">
+  <ul class="grid md:grid-cols-2 sm:grid-cols-1">
+    {filteredPosts.map((post) => <BlogCard url={post.url} title={post.frontmatter.title} pubDate={post.frontmatter.pubDate} icon={post.frontmatter.icon} />)}
+  </ul>
+  </div>
+</BaseLayout>

@@ -1,0 +1,91 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const pageTitle = "私について";
+
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <div class="profile-container">
+    <div class="profile-header">
+      <h1>Teymo</h1>
+    </div>
+
+    <div class="profile-content">
+      <section class="about-me">
+        <h2>自己紹介</h2>
+        <p>
+          プログラミング好きな学生です。よろしくお願いします🙇‍♂️
+        </p>
+      </section>
+
+      <section class="skills">
+        <h2>スキル</h2>
+        <ul>
+          <li>Python、Flutterなど</li>
+        </ul>
+      </section>
+
+      <section class="contact">
+        <h2>連絡先 (準備中)</h2>
+        <ul>
+          <li>Email: </li>
+          <li>Twitter: </li>
+          <li>GitHub: </li>
+        </ul>
+      </section>
+    </div>
+  </div>
+
+  <style>
+    .profile-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .profile-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .profile-image {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+
+    .job-title {
+      color: #666;
+      font-size: 1.2rem;
+    }
+
+    .profile-content section {
+      margin-bottom: 2.5rem;
+    }
+
+    .profile-content h2 {
+      border-bottom: 2px solid #eee;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .skills ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .skills li {
+      margin-bottom: 0.5rem;
+    }
+
+    .contact ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .contact li {
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</BaseLayout>
