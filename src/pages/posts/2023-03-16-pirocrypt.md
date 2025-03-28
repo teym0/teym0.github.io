@@ -1,10 +1,10 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
-title: "Picocryptでファイル暗号化"
-description: "Picocryptでファイル暗号化"
+title: "単体のファイルを簡単にパスワードロックする"
+description: "単体のファイルを簡単にパスワードロックする"
 pubDate: 2023-03-16
 tags: []
-icon: "🔑"
+icon: "🔒"
 ---
 
 秘密の写真やキーファイルなど、細かいファイル単位の「他人に見られたくないファイルをパスワードで暗号化して保存したい」みたいなことがあると思います。

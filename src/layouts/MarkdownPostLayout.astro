@@ -2,16 +2,26 @@
 import BaseLayout from './BaseLayout.astro';
 import TagButton from '../components/TagButton.astro';
 const { frontmatter } = Astro.props;
+
+import twemoji from "twemoji";
+
+const emoji = twemoji.parse(
+  frontmatter.icon,
+  { base: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/' }
+);
+
 ---
 
 <BaseLayout pageTitle={frontmatter.title}>
 
 
-    <div class="text-center my-15">
-      <h1 class="text-5xl pb-3">{frontmatter.icon}</h1>
-      <h1 class="text-4xl font-bold mx-5">{frontmatter.title}</h1>
-      <p class="mt-3 post-date">{frontmatter.pubDate.toString().slice(0,10)}</p>
-    </div>
+<div class="text-center my-15">
+  <div class="text-center my-15">
+  <h1 set:html={emoji} class="text-5xl mb-4 inline-block"></h1>
+  <h1 class="text-4xl font-bold mx-5 mb-3 text-gray-900">{frontmatter.title}</h1>
+  <p class="text-gray-600 text-lg">{frontmatter.pubDate.toString().slice(0,10)}</p>
+</div>
+</div>
 
     <div class="p-5 font-bold underline">
       <a href="/blog/" class="hover:text-gray-950">記事一覧に戻る</a>
@@ -19,8 +29,8 @@ const { frontmatter } = Astro.props;
     <div class="bg-white p-8 prose prose-lg lg:prose-lg 
       prose-headings:font-bold prose-headings:tracking-tight
       prose-h1:text-3xl prose-h1:mt-12 prose-h1:mb-6 prose-h1:pb-4 prose-h1:border-b-6 prose-h1:border-gray-200 prose-h1:leading-tight prose-h1:text-gray-900
-      prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-5 prose-h2:pb-3 prose-h2:border-b-4 prose-h2:border-gray-200 prose-h2:leading-tight prose-h2:text-gray-800
-      prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-4 prose-h3:font-semibold prose-h3:text-gray-700 prose-h3:leading-snug prose-h3:before:content-['■'] prose-h3:before:mr-2 prose-h3:before:text-amber-400
+      prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-5 prose-h2:pb-1 prose-h2:border-b-2 prose-h2:border-black prose-h2:leading-tight prose-h2:text-gray-800
+      prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-4 prose-h3:font-semibold prose-h3:text-gray-700 prose-h3:leading-snug prose-h3:before:content-['■'] prose-h3:before:mr-2 prose-h3:before:text-black
       prose-p:text-gray-700 prose-p:leading-relaxed
       prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline
       prose-strong:text-gray-900
