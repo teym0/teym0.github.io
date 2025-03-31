@@ -7,3 +7,13 @@ img {
     max-height: 500px;
     object-fit: contain;
 }
+
+
+body {
+  font-family: "Helvetica Neue",
+    Arial,
+    "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans",
+    Meiryo,
+    sans-serif;
+}
