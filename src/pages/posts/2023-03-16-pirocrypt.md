@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
-title: "単体のファイルを簡単にパスワードロックする"
-description: "単体のファイルを簡単にパスワードロックする"
+title: "Picocryptを使う"
+description: "Picocryptを使ってファイルをロック"
 pubDate: 2023-03-16
 tags: []
 icon: "🔒"
