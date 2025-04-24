@@ -1,9 +1,11 @@
 ---
+import type { GetStaticPaths } from "astro";
 import BaseLayout from './BaseLayout.astro';
 import TagButton from '../components/TagButton.astro';
 const { frontmatter } = Astro.props;
 
 import twemoji from "twemoji";
+import { getCollection, getEntryBySlug } from "astro:content";
 
 const emoji = twemoji.parse(
   frontmatter.icon,
@@ -26,6 +28,7 @@ const emoji = twemoji.parse(
     <div class="p-5 font-bold underline">
       <a href="/blog/" class="hover:text-gray-950">記事一覧に戻る</a>
     </div>
+    <div class="flex justify-between">
     <div class="bg-white p-8 prose prose-lg lg:prose-lg 
       prose-headings:font-bold prose-headings:tracking-tight
       prose-h1:text-3xl prose-h1:mt-12 prose-h1:mb-6 prose-h1:pb-4 prose-h1:border-b-6 prose-h1:border-gray-200 prose-h1:leading-tight prose-h1:text-gray-900
@@ -45,5 +48,7 @@ const emoji = twemoji.parse(
       </div>
 
       <slot />
+    </div>
+
     </div>
 </BaseLayout>
