@@ -4,8 +4,8 @@ const { tag } = Astro.props;
 const iconPath = tagIcons[tag] || '/icons/default.svg';
 ---
 
-<a class="font-bold inline-block py-2 px-4 my-1 mr-2 bg-white border border-gray-600 rounded-2xl hover:bg-gray-600 active:bg-gray-600 hover:text-white duration-200" href={`/tags/${tag}`}>
-        <img src={iconPath} alt={tag} class="w-6 h-6 inline-block mr-1" />
-        {tag}
+<a class="font-bold inline-block pt-1.5 pb-2 px-4 my-1 mr-2 bg-white border border-gray-600 rounded-2xl hover:bg-gray-600 active:bg-gray-600 hover:text-white duration-200" href={`/tags/${tag}`}>
+  <img src={iconPath} alt={tag} class="w-6 h-6 inline-block align-middle mr-1" />
+  <span class="align-middle mr-1">{tag}</span>
 </a>
 
