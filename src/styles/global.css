@@ -2,17 +2,28 @@
 @plugin '@tailwindcss/typography';
 
 
-
 img {
     max-height: 500px;
     object-fit: contain;
 }
 
-
-body {
-  font-family: 'Noto Sans JP', sans-serif;
+/* noto-sans-jp-regular - japanese_latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-weight: normal;
+  src: url('/fonts/noto-sans-jp-v53-japanese_latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
-.serif {
-  font-family: 'Noto Serif JP', serif;
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-weight: bold;
+  src: url('/fonts/noto-sans-jp-v53-japanese_latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+body {
+  font-family: "Noto Sans JP", sans-serif;
 }
